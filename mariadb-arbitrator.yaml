@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-arbitrator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb-arbitrator
+  template:
+    metadata:
+      labels:
+        app: mariadb-arbitrator
+    spec:
+      containers:
+      - name: mariadb-arbitrator
+        image: percona/percona-xtradb-cluster-arbitrator:latest
